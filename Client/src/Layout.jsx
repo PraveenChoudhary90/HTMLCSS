@@ -7,7 +7,7 @@ const Layout = ()=>{
     return(
         <>
           <TopNav/>
-          <main>
+          <main style={{margin:"40px"}}>
             <Outlet/>
           </main>
           <Footer/>
