@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
+import axios from "axios";
+
 
 const Insert = ()=>{
 
@@ -17,12 +19,36 @@ const Insert = ()=>{
 
      }
 
-     const HandelImage = ()=>{
+     const HandelImage = (e)=>{
+      setImage(e.target.files);
+      console.log(image);
 
      }
 
-     const HandelSubmit = (e)=>{
+     const HandelSubmit =async (e)=>{
         e.preventDefault();
+        const formData = new FormData(); 
+
+       for(let key in input){
+        formData.append(key, input[key]);
+       }
+
+
+         for(let i =0;i<length.image;i++){
+          formData.append("image", image[i]);
+         }
+
+
+
+
+        const api = "http://localhost:8000/student/insert";
+        try {
+          const response = await axios.post(api, formData);
+          console.log(response.data);
+          
+        } catch (error) {
+          console.log(error);
+        }
 
      }
 
@@ -61,7 +87,7 @@ const Insert = ()=>{
         <Form.Label>Picture</Form.Label>
         <Form.Control type="file" multiple onChange={HandelImage} />
       </Form.Group>
-      <Button variant="primary" type="submit" onSubmit={HandelSubmit}>
+      <Button variant="primary" type="submit" onClick={HandelSubmit}>
         Submit
       </Button>
     </Form>
