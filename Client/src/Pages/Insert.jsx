@@ -47,7 +47,7 @@ const Insert = ()=>{
         try {
           const response = await axios.post(api, formData);
           console.log(response.data);
-          alert("data save")
+          alert(response.data.msg);
           
         } catch (error) {
           console.log(error);

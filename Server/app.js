@@ -4,9 +4,10 @@ const cors  =require("cors");
 const mongoose =require("mongoose");
 const bodyParser  =require("body-parser");
 const StuRoute = require ("./Routes/StuRoute");
+ const path = require('path'); // Import the 'path' module
 
 app.use(cors());
-
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // Parse incoming requests with JSON payloads
 app.use(bodyParser.json());
 
@@ -14,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-mongoose.connect("mongodb://localhost:27017/").then(()=>{
+mongoose.connect("mongodb://localhost:27017/PSTudent").then(()=>{
     console.log("DB IS CONNECTED")
 })
 
