@@ -22,6 +22,16 @@ const InsertStudent  =async(req,res)=>{
         console.log(error)
     }
 }
+
+
+const Displaydata  =async(req,res)=>{
+    const Data = await StuModel.find();
+    res.send(Data);
+    console.log(Data);
+}
+
+
 module.exports = {
-    InsertStudent
+    InsertStudent,
+    Displaydata
 }
