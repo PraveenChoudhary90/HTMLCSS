@@ -26,6 +26,7 @@ const upload = multer({
 
 route.post("/insert", upload.array('image', 10)  ,StuController.InsertStudent);
 route.get("/display", StuController.Displaydata);
+route.post("/delete", StuController.DeleteData);
 
 
 

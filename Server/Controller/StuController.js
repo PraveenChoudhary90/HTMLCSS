@@ -30,8 +30,14 @@ const Displaydata  =async(req,res)=>{
     console.log(Data);
 }
 
+const DeleteData = async(req,res)=>{
+    const {id} = req.body;
+    const Data = await StuModel.findByIdAndDelete(id);
+    res.send({msg:"Data delete successfully"});
+}
 
 module.exports = {
     InsertStudent,
-    Displaydata
+    Displaydata,
+    DeleteData
 }

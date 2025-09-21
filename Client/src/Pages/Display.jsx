@@ -17,6 +17,34 @@ const Display = ()=>{
         LoadData();
     },[]);
 
+  const HandelDelete = async(id)=>{
+    // console.log(id);
+    const api = "http://localhost:8000/student/delete";
+    try {
+        const response  = await axios.post(api, {id:id});
+        console.log(response.data);
+        alert(response.data.msg);
+    } catch (error) {
+        console.log(error)
+    }
+
+  }
+
+
+  const HandelUpdate = async(_id)=>{
+    // console.log(_id);
+    const api = "http://localhost:8000/student/update";
+    try {
+        
+    } catch (error) {
+        
+    }
+
+  }
+
+
+
+
   let count = 0;
     const ans = mydata.map(key=>{
         count++;
@@ -32,8 +60,8 @@ const Display = ()=>{
                 <td>{key.city}</td>
                 <td>{key.number}</td>
                 <td>{key.state}</td>
-                <td>Delete</td>
-                <td>Update</td>
+                <td onClick={()=>{HandelDelete(key._id)}} >Delete</td>
+                <td onClick={()=>{HandelUpdate(key._id)}}>Update</td>
             </tr>
             </>
         )
