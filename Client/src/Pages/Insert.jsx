@@ -27,6 +27,9 @@ const Insert = ()=>{
 
      const HandelSubmit =async (e)=>{
         e.preventDefault();
+
+        const api = "http://localhost:8000/student/insert";
+
         const formData = new FormData(); 
 
        for(let key in input){
@@ -34,17 +37,17 @@ const Insert = ()=>{
        }
 
 
-         for(let i =0;i<length.image;i++){
+         for(let i=0;i<image.length;i++){
           formData.append("image", image[i]);
          }
 
 
 
 
-        const api = "http://localhost:8000/student/insert";
         try {
           const response = await axios.post(api, formData);
           console.log(response.data);
+          alert("data save")
           
         } catch (error) {
           console.log(error);
