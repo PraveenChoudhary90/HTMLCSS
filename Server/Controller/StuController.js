@@ -36,8 +36,24 @@ const DeleteData = async(req,res)=>{
     res.send({msg:"Data delete successfully"});
 }
 
+const Updategetdata = async(req,res)=>{
+    const {_id} = req.body;
+    const Data = await StuModel.findById({_id});
+    console.log(Data);
+    res.send(Data);
+}
+
+const HandelUpdateSubmit =async(req,res)=>{
+    const {_id} = req.body;
+    const Data = await StuModel.findByIdAndUpdate(_id, req.body);
+    console.log(Data);
+    res.send({msg:"Student Data successfully update"})
+}
+
 module.exports = {
     InsertStudent,
     Displaydata,
-    DeleteData
+    DeleteData,
+    Updategetdata,
+    HandelUpdateSubmit
 }
