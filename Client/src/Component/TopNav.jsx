@@ -3,7 +3,15 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 
+import { MdOutlineLocalGroceryStore } from "react-icons/md";
+import { useSelector } from 'react-redux';
+
 const TopNav = ()=>{
+   
+  const Product = useSelector(state=>state.mycart.Cart);
+  console.log(Product);
+  const ProductLentgh = Product.length;
+
     return(
         <>
           <Navbar bg="primary" data-bs-theme="dark">
@@ -17,6 +25,9 @@ const TopNav = ()=>{
             <Nav.Link as={Link}  to="addtocart">Add To Cart</Nav.Link>
           </Nav>
         </Container>
+        <span>
+            <MdOutlineLocalGroceryStore />{ProductLentgh}
+        </span>
       </Navbar>
 
         </>
