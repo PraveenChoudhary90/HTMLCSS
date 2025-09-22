@@ -50,10 +50,19 @@ const HandelUpdateSubmit =async(req,res)=>{
     res.send({msg:"Student Data successfully update"})
 }
 
+const AddtocartData = async(req,res)=>{
+
+    const Data = await StuModel.find();
+    res.send(Data);
+    console.log(Data);
+
+}
+
 module.exports = {
     InsertStudent,
     Displaydata,
     DeleteData,
     Updategetdata,
-    HandelUpdateSubmit
+    HandelUpdateSubmit,
+    AddtocartData
 }

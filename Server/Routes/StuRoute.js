@@ -29,6 +29,7 @@ route.get("/display", StuController.Displaydata);
 route.post("/delete", StuController.DeleteData);
 route.post("/update", StuController.Updategetdata);
 route.post("/updatefrom", StuController.HandelUpdateSubmit);
+route.get("/addtocart", StuController.AddtocartData);
 
 
 
