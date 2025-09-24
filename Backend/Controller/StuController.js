@@ -29,9 +29,19 @@ const SaveData  =async(req,res)=>{
     }
     res.render("insert");
 }
+
+
+const Dispalydata = async(req,res)=>{
+    const data = await StuModel.find();
+    console.log(data);
+    res.render("display", {data:data});
+}
+
+
 module.exports  ={
     Homepage,
     Aboutpage,
     Insertpage,
-    SaveData
+    SaveData,
+    Dispalydata
 }
