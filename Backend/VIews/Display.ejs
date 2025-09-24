@@ -12,5 +12,27 @@
  <a href="/student/display">Dispaly</a>
     <h1>Display Data</h1>
     <hr size="6" color="red">
+
+    <table bg="red" align="center" width="700px" border="1">
+        <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>city</th>
+            <th>number</th>
+        </tr>
+        <tr>
+            <% data.map(key=>{
+                %>
+                <td><%= key.name %></td>
+                <td><%= key.email %></td>
+                <td><%= key.city %></td>
+                <td><%= key.number %></td>
+        </tr>
+
+            <%
+        })
+            %>
+
+    </table>
 </body>
 </html>
