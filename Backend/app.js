@@ -3,12 +3,21 @@ const app  =express();
 const cors  = require("cors");
 const bodyParser  =require("body-parser");
 const mongoose  =require("mongoose");
+const StuRoute = require("./Routes/StuRoute");
 
+app.use(cors());
+// Parse incoming requests with JSON payloads
+app.use(bodyParser.json());
 
+// Parse incoming requests with urlencoded payloads
+app.use(bodyParser.urlencoded({ extended: true }));
 
+mongoose.connect("mongodb://127.0.0.1:27017/EjsPraveen").then(()=>{
+    console.log("DB IS CONNECTED");
+})
 
-
-
+app.set("view engine", "ejs");
+app.use("/student", StuRoute);
 
 
 
