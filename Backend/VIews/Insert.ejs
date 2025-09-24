@@ -6,7 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body bgcolor="blue">
+ <a href="/student/home">Home</a>
+ <a href="/student/about">About</a>
+ <a href="/student/insert">Insert</a>
     <h1>Insert Page</h1>
+    <hr size="4" color="red">
+<form action="/student/save" method="post">
+   myname: <input type="text" name="name" ><br>
+   myemail: <input type="text" name="email" ><br>
+   mycity: <input type="text" name="city" ><br>
+   mynumber: <input type="text" name="number" ><br>
+   <button>save</button>
+</form>
+
 </body>
 </html>
