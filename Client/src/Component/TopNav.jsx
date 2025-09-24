@@ -1,13 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import { useSelector } from 'react-redux';
 
 const TopNav = ()=>{
-   
+   const navigate  =useNavigate();
   const Product = useSelector(state=>state.mycart.Cart);
   console.log(Product);
   const ProductLentgh = Product.length;
@@ -26,7 +26,7 @@ const TopNav = ()=>{
           </Nav>
         </Container>
         <span>
-            <MdOutlineLocalGroceryStore />{ProductLentgh}
+            <MdOutlineLocalGroceryStore onClick={()=>{navigate("/cartdata")}} />{ProductLentgh}
         </span>
       </Navbar>
 

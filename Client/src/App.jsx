@@ -7,6 +7,7 @@ import About from './Pages/About'
 import Insert from './Pages/Insert'
 import Display from './Pages/Display'
 import AddtoCart from './Pages/AddtoCart'
+import CartData from './Pages/CartData'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <Route path='insert' element={<Insert/>}/>
       <Route path='display' element={<Display/>}/>
       <Route path='addtocart' element={<AddtoCart/>}/>
+      <Route path='cartdata' element={<CartData/>}/>
       </Route>
      </Routes>
      </BrowserRouter>
