@@ -40,4 +40,45 @@ promise
 })
 
 
+function fetchData() {
+  return new Promise(function(resolve, reject) {
+    setTimeout(() => {
+      const data = { id: 1, name: "Alice" };
+      resolve(data);
+    }, 2000); // Simulates 2 second delay
+  });
+}
+
+fetchData()
+  .then(function(user) {
+    console.log("User data:", user);
+  })
+  .catch(function(error) {
+    console.error("Error:", error);
+  });
+
+
+
+  function fetchData() {
+  return new Promise(function(resolve, reject) {
+    setTimeout(() => {
+      const data = { id: 1, name: "Alice" };
+      resolve(data);
+    }, 2000);
+  });
+}
+
+async function displayData() {
+  try {
+    const result = await fetchData();
+    console.log("Fetched:", result);
+  } catch (err) {
+    console.error("Error:", err);
+  }
+}
+
+displayData();
+
+
+
 
